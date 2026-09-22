@@ -18,7 +18,7 @@ know if you have any other questions!
 $ python3 tools/deslop.py --text "…the reply above…"
 95 words of visible copy
 
-  score 5/5  CLEAN
+  score 6/6  CLEAN
 ```
 
 No banned word, no shape, no cadence the window can catch. Every line is still something

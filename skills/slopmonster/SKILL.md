@@ -15,10 +15,10 @@ The loop is always the same four steps, and the linter gets the first and last w
 because the linter is honest and the model is persuasive.
 
 ```
-1. LINT      python3 ${CLAUDE_PLUGIN_ROOT}/tools/deslop.py --text "…"      score /5, exits red below 5
+1. LINT      python3 ${CLAUDE_PLUGIN_ROOT}/tools/deslop.py --text "…"      score /6, exits red below 6
 2. REWRITE   three passes, by hand or by model       (see below)
 3. CLEANSE   a DIFFERENT model family strips tells   ${CLAUDE_PLUGIN_ROOT}/tools/cleanse.sh
-4. RE-LINT   python3 ${CLAUDE_PLUGIN_ROOT}/tools/deslop.py again           ship only at 5/5
+4. RE-LINT   python3 ${CLAUDE_PLUGIN_ROOT}/tools/deslop.py again           ship only at 6/6
 ```
 
 ## Step 0 — A short message to one person (run the shape passes first)
@@ -40,8 +40,9 @@ python3 ${CLAUDE_PLUGIN_ROOT}/tools/deslop.py --text "paste a draft"
 python3 ${CLAUDE_PLUGIN_ROOT}/tools/deslop.py page.html --allow-proof  # numbers are real and evidenced
 ```
 
-Regex, no opinions. Five groups, one point each: AI vocabulary, AI constructions,
-punctuation cadence, rule-of-three rhythm, invented proof. Below 5/5 it exits non-zero, so
+Regex, no opinions. Six groups, one point each: AI vocabulary, AI constructions,
+punctuation cadence, rule-of-three rhythm, invented proof, aphoristic clause-pairing.
+Below 6/6 it exits non-zero, so
 it works as a build gate. "Mostly clean" is how a page ends up sounding like every other
 AI page on the internet.
 
@@ -61,6 +62,9 @@ Full catalogue in `${CLAUDE_PLUGIN_ROOT}/references/signs-of-ai-writing.md`. The
 2. **Kill the shapes.** `not just X, but Y` is the single loudest tell in English right
    now. Also the `rule-of-three` reflex, `em-dash` pile-ups, hedge stacks, symmetrical
    paragraphs, the closing summary nobody asked for, and a bold lead on every bullet.
+   And the clause-pairing cadence rule 6 scores: two short clauses with no connector,
+   the second relabelling or one-upping the first. It sounds like a conclusion, and no
+   argument was made.
 3. **Put a person back in.** Removing tells leaves clean, dead copy. One specific number
    per claim. Sentence lengths that vary hard. One thing a cautious writer would have cut.
    One rough edge — a contraction, a fragment, a sentence starting with "And".
